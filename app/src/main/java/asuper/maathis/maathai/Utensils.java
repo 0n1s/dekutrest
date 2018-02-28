@@ -125,6 +125,7 @@ public class Utensils extends AppCompatActivity {
     private void showthem(String s)
     {
 
+        Log.d("TAG_",s);
         JSONObject jsonObject = null;
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -145,22 +146,22 @@ public class Utensils extends AppCompatActivity {
                     content = jo.getString("content");
                     price = jo.getString("price");
                     String trxID = jo.getString("trxID");
-                    //String name = jo.getString("food_name");
-                    StringBuilder  builder = new StringBuilder();
-                    JSONArray jsonArray = new JSONArray(content);
-                    for (int ii = 0; ii < jsonArray.length(); ii++)
-                    {
-                        JSONObject jsonObject1 = jsonArray.getJSONObject(ii);
-                        String food_name = jsonObject1.getString("food_name");
-                        builder.append(food_name+"\n");
-                    }
+                    String name = jo.getString("content");
+                    //StringBuilder  builder = new StringBuilder();
+//                    JSONArray jsonArray = new JSONArray(content);
+//                    for (int ii = 0; ii < jsonArray.length(); ii++)
+//                    {
+//                        JSONObject jsonObject1 = jsonArray.getJSONObject(ii);
+//                        String food_name = jsonObject1.getString("food_name");
+//                        builder.append(food_name+"\n");
+//                    }
 
-                    String foods = builder.toString();
+                   // String foods = builder.toString();
 
 
                     HashMap<String, String> employees = new HashMap<>();
                     employees.put("date", dateexe);
-                    employees.put("name", foods);
+                    employees.put("name", name);
                     employees.put("price", price);
                     employees.put("id", trxID);
                     list.add(employees);
